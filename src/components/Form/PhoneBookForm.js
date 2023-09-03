@@ -14,13 +14,13 @@ export const ContactForm = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
     const form = evt.target;
-    const { name, phone } = form.elements;
+    const { name, number } = form.elements;
     if (contacts) {
       if (contacts.find(element => element.name === name.value)) {
         return alert(name.value + ' is already in contacts');
       }
     }
-    dispatch(addContact({ name: name.value, phone: phone.value }));
+    dispatch(addContact({ name: name.value, phone: number.value }));
     form.reset();
     const input = document.getElementsByName('filter');
     input.value = filter;
